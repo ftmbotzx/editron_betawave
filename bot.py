@@ -127,17 +127,23 @@ async def stats_handler(c: Client, m: Message):
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = (
-        f"<b>╭「 💠 BOT STATISTICS 」</b>\n"
-        f"<b>│</b>\n"
-        f"<b>├⏳ Bot Uptime : {currentTime}</b>\n"
-        f"<b>├💾 Total Disk Space : {total}</b>\n"
-        f"<b>├📀 Total Used Space : {used}</b>\n"
-        f"<b>├💿 Total Free Space : {free}</b>\n"
-        f"<b>├🔺 Total Upload : {sent}</b>\n"
-        f"<b>├🔻 Total Download : {recv}</b>\n"
-        f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
-        f"<b>├⚙️ RAM : {memory}%</b>\n"
-        f"<b>╰💿 DISK : {disk}%</b>"
+    f"<b>╭「 💠 BOT STATISTICS 」</b>\n"
+    f"<b>│</b>\n"
+    f"<b>├⏳ Bot Uptime : {currentTime}</b>\n"
+    f"<b>├🕒 Server Time : {server_time}</b>\n"
+    f"<b>├👤 Total Users : {total_users}</b>\n"
+    f"<b>├📁 Active Tasks : {active_tasks}</b>\n"
+    f"<b>├💾 Total Disk Space : {total}</b>\n"
+    f"<b>├📀 Total Used Space : {used}</b>\n"
+    f"<b>├💿 Total Free Space : {free}</b>\n"
+    f"<b>├🔺 Total Upload : {sent}</b>\n"
+    f"<b>├🔻 Total Download : {recv}</b>\n"
+    f"<b>├⚡ Network Speed : {net_speed}</b>\n"
+    f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
+    f"<b>├⚙️ RAM : {memory}%</b>\n"
+    f"<b>├🔄 Bot Restart Count : {restart_count}</b>\n"
+    f"<b>├📊 System Load : {system_load}</b>\n"
+    f"<b>╰💿 DISK : {disk}%</b>"
     )
     await m.reply_text(text=stats, quote=True)
 
@@ -202,7 +208,17 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files!, And upload it to telegram\n\n**Owner: 🈲 @{Config.OWNER_USERNAME}** ",
+        text=f
+    "╭━━━〔 ✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ғᴛᴍʙᴏᴛᴢx ᴇᴅɪᴛʀᴏɴ ✨ 〕━━━╮\n"
+    f"┣⏳ ʜᴇʏ, **{m.from_user.first_name}**!\n"
+    f"┣🚀 ɪ ᴀᴍ **ғᴛᴍʙᴏᴛᴢx ᴇᴅɪᴛʀᴏɴ**, ᴛʜᴇ ᴜʟᴛɪᴍᴀᴛᴇ ғɪʟᴇ/ᴠɪᴅᴇᴏ ᴍᴇʀɢᴇʀ ʙᴏᴛ!\n"
+    f"┣🎞️ ᴄᴏᴍʙɪɴᴇ ᴍᴜʟᴛɪᴘʟᴇ ᴠɪᴅᴇᴏꜱ ᴡɪᴛʜ ᴄᴜsᴛᴏᴍ ᴏʀᴅᴇʀɪɴɢ & ꜱᴇᴛᴛɪɴɢꜱ.\n"
+    f"┣⚡ ʟɪɢʜᴛɴɪɴɢ-ꜰᴀꜱᴛ ᴍᴇʀɢɪɴɢ & ᴜᴘʟᴏᴀᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴍ.\n"
+    f"┣📂 ʙʟᴀᴢɪɴɢ-ꜰᴀꜱᴛ ᴄᴏɴᴠᴇʀꜱɪᴏɴ & ᴍᴜʟᴛɪꜰᴏʀᴍᴀᴛ ꜱᴜᴘᴘᴏʀᴛ.\n"
+    f"┣💡 ᴄᴏɴᴛʀᴏʟ ᴠɪᴅᴇᴏ ǫᴜᴀʟɪᴛʏ, ᴀᴜᴅɪᴏ, ꜱᴜʙᴛɪᴛʟᴇꜱ & ᴍᴏʀᴇ!\n"
+    f"┣🛠 ᴀᴅᴠᴀɴᴄᴇᴅ ᴛᴏᴏʟꜱ: ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟꜱ, ᴘʀᴏɢʀᴇꜱꜱ ʙᴀʀ & ᴏᴛʜᴇʀ ꜰᴇᴀᴛᴜʀᴇꜱ.\n"
+    f"╰━━━〔 👑 ᴏᴡɴᴇʀ: @{Config.OWNER_USERNAME} 👑 〕━━━╯"
+) ",
         quote=True,
     )
     del user
